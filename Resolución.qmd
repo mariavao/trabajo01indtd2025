@@ -1,0 +1,26 @@
+---
+title: "Resolución"
+author: "María Varela Oyola"
+editor: visual
+date: "`r Sys.Date()`"
+date-format: "DD/MM/YYYY"
+lang: es
+toc: true
+toc-depth: 4
+number-sections: true
+format:
+  html:
+    code-tools: true
+    code-fold: true
+  pdf: 
+    keep-tex: true
+    header-includes:
+      - \usepackage{float}
+      - \floatplacement{table}{H}
+      - \floatplacement{figure}{H}
+execute: 
+  echo: true
+  warnings: false
+---
+
+## 
