@@ -40,6 +40,24 @@ Aplicar los criterios de decisión bajo incertidumbre al problema cuya matriz de
 
 Considera el problema primero de beneficios (favorable) y posteriormente de costos (desfavorable).
 
+## Creación de la matriz
+
+```{r}
+
+```
+
+## Resolución de beneficios
+
+```{r}
+
+```
+
+## Resolución de costes
+
+```{r}
+
+```
+
 \pagebreak
 
 # Problema 2
@@ -59,3 +77,9 @@ Miguel trabaja desde casa y necesita Internet para videollamadas frecuentes y de
 -   Problemas en videollamadas y reuniones importantes: 1000€
 
 Miguel quiere evaluar cuál sería el coste total del primer año, considerando que podría tener meses de alta demanda de trabajo o meses de baja demanda, y cuál sería la mejor compañía a elegir.
+
+## Creación de la matriz
+
+```{r}
+
+```
