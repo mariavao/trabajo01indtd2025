@@ -1,0 +1,60 @@
+---
+title: "Descripción del trabajo"
+author: "María Varela Oyola"
+editor: visual
+date: "`r Sys.Date()`"
+date-format: "DD/MM/YYYY"
+lang: es
+toc: true
+toc-depth: 4
+number-sections: true
+format:
+  html:
+    code-tools: true
+    code-fold: true
+  pdf: 
+    keep-tex: true
+    header-includes:
+      - \usepackage{float}
+      - \floatplacement{table}{H}
+      - \floatplacement{figure}{H}
+execute: 
+  echo: true
+  warnings: false
+---
+
+\pagebreak
+
+# Proyecto RStudio individual
+
+El objetivo es crear:
+
+-   Un documento en el que se enuncien dos problemas de Teoría de la Decisión bajo Incertidumbre inventados por el alumno.
+
+-   Un documento diferente que se incluyan los enunciados de los problemas y se resuelva con ayuda del código R incluido en la asignatura
+
+El primer problema será una tabla de decisión con valores inventados y resuelto con cada uno de los métodos o funciones individuales de Incertidumbre por separado (tanto en situación favorable como desfavorable).
+
+El segundo problema tendrá un enunciado que se refiera a una situación real y su resolución se llevará a cabo con la función R que devuelve la resolución de todos los métodos en una única tabla. Al final de cada uno de los problemas, debe aparecer muy claramente la conclusión que indique cuál es la decisión final.
+
+# Características
+
+Las características que debe tener el repositorio-proyecto son:
+
+-   El nombre del repositorio debe ser: "usuariogithub/trabajo01indtd2025"
+
+-   Al menos 3 commits
+
+-   Al menos 2 issues o incidencias
+
+-   Un fichero README.md que incluya una breve descripción del contenido del repositorio
+
+# Evaluación
+
+La evaluación del trabajo será de la forma:
+
+-   La entrega será a través de una tarea en "Enseñanza Virtual" (EV) en la que cada alumno indicará el enlace al repositorio GitHub que ha creado.
+
+-   La fecha de entrega del trabajo es el viernes 24 de octubre de 2025 a las 23:59.
+
+-   La nota del trabajo será un 10% de la calificación en la evaluación continua de la parte de "problemas".
