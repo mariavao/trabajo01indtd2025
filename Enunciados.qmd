@@ -31,9 +31,9 @@ Aplicar los criterios de decisión bajo incertidumbre al problema cuya matriz de
 
 |     | e1  | e2  | e3  | e4  | e5  |
 |-----|-----|-----|-----|-----|-----|
-| d1  | 80  | 50  | 60  | 30  | 90  |
-| d2  | 40  | 70  | 55  | 65  | 60  |
-| d3  | 20  | 60  | 85  | 75  | 50  |
+| d1  | 90  | 40  | 60  | 40  | 75  |
+| d2  | 50  | 70  | 55  | 65  | 60  |
+| d3  | 20  | 80  | 90  | 75  | 50  |
 | d4  | 70  | 45  | 40  | 95  | 30  |
 
 Donde ei indica los estados de la naturaleza (desde i = 1,...,5) y di indica las diferentes alternativas / decisiones a tomar (desde i = 1,...,4)
