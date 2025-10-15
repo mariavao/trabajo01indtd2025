@@ -23,4 +23,39 @@ execute:
   warnings: false
 ---
 
-## 
+\pagebreak
+
+# Problema 1
+
+Aplicar los criterios de decisión bajo incertidumbre al problema cuya matriz de valores numéricos viene dada en la siguiente tabla:
+
+|     | e1  | e2  | e3  | e4  | e5  |
+|-----|-----|-----|-----|-----|-----|
+| d1  | 90  | 40  | 60  | 40  | 75  |
+| d2  | 50  | 70  | 55  | 65  | 60  |
+| d3  | 20  | 80  | 90  | 75  | 50  |
+| d4  | 70  | 45  | 40  | 95  | 30  |
+
+: Donde ei indica los estados de la naturaleza (desde i = 1,...,5) y di indica las diferentes alternativas / decisiones a tomar (desde i = 1,...,4)
+
+Considera el problema primero de beneficios (favorable) y posteriormente de costos (desfavorable).
+
+\pagebreak
+
+# Problema 2
+
+Miguel está pensando en contratar un servicio de Internet para su hogar. Ha consultado varias compañías y le han dado los siguientes informes:
+
+-   Con Digi debe pagar un cuota mensual de 25€, pero la velocidad máxima solo estará disponible después de 6 meses; hasta entonces, solo tendrá la mitad de velocidad contratada.
+
+-   Con O2 puede disfrutar de la velocidad completa desde el primer mes, pero deberá pagar una cuota de 50€ al mes.
+
+-   Con Vodafone debe pagar 35€ al mes, lo que garantiza la velocidad completa, excepto en horas puntas, cuando la velocidad se reduce.
+
+Miguel trabaja desde casa y necesita Internet para videollamadas frecuentes y descargas grandes de archivos. Supongamos que el coste asociado a la velocidad insuficiente son:
+
+-   Reducción en productividad y retrasos en descargas: 400€
+
+-   Problemas en videollamadas y reuniones importantes: 1000€
+
+Miguel quiere evaluar cuál sería el coste total del primer año, considerando que podría tener meses de alta demanda de trabajo o meses de baja demanda, y cuál sería la mejor compañía a elegir.
