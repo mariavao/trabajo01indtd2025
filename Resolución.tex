@@ -1,0 +1,350 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{float}
+\usepackage{tabularray}
+\usepackage[normalem]{ulem}
+\usepackage{graphicx}
+\UseTblrLibrary{booktabs}
+\UseTblrLibrary{rotating}
+\UseTblrLibrary{siunitx}
+\NewTableCommand{\tinytableDefineColor}[3]{\definecolor{#1}{#2}{#3}}
+\newcommand{\tinytableTabularrayUnderline}[1]{\underline{#1}}
+\newcommand{\tinytableTabularrayStrikeout}[1]{\sout{#1}}
+\KOMAoption{captions}{tableheading}
+\usepackage{float}
+\floatplacement{table}{H}
+\floatplacement{figure}{H}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Tabla de contenidos}
+\else
+  \newcommand\contentsname{Tabla de contenidos}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Listado de Figuras}
+\else
+  \newcommand\listfigurename{Listado de Figuras}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Listado de Tablas}
+\else
+  \newcommand\listtablename{Listado de Tablas}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figura}
+\else
+  \newcommand\figurename{Figura}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Tabla}
+\else
+  \newcommand\tablename{Tabla}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listado}
+\newcommand*\listoflistings{\listof{codelisting}{Listado de Listados}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{spanish}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Resolución},
+  pdfauthor={María Varela Oyola},
+  pdflang={es},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Resolución}
+\author{María Varela Oyola}
+\date{17/10/2025}
+
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Tabla de contenidos}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{4}
+\tableofcontents
+}
+\pagebreak
+
+\section{Previo al planteamiento de los
+problemas}\label{previo-al-planteamiento-de-los-problemas}
+
+Implementamos las funciones de incertidumbre a utilizar
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{source}\NormalTok{(}\StringTok{"teoriadecision\_funciones\_incertidumbre.R"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Cargamos la librería tinytable para presentar las tablas en un mejor
+formato
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tinytable)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Warning: package 'tinytable' was built under R version 4.3.3
+\end{verbatim}
+
+\pagebreak
+
+\section{Problema 1}\label{problema-1}
+
+Aplicar los criterios de decisión bajo incertidumbre al problema cuya
+matriz de valores numéricos viene dada en la siguiente tabla:
+
+\begin{longtable}[]{@{}llllll@{}}
+\caption{Donde ei indica los estados de la naturaleza (desde i =
+1,\ldots,5) y di indica las diferentes alternativas / decisiones a tomar
+(desde i = 1,\ldots,4)}\tabularnewline
+\toprule\noalign{}
+& e1 & e2 & e3 & e4 & e5 \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+& e1 & e2 & e3 & e4 & e5 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+d1 & 90 & 40 & 60 & 40 & 75 \\
+d2 & 50 & 70 & 55 & 65 & 60 \\
+d3 & 20 & 80 & 90 & 75 & 50 \\
+d4 & 70 & 45 & 40 & 95 & 30 \\
+\end{longtable}
+
+Considera el problema primero de beneficios (favorable) y posteriormente
+de costos (desfavorable).
+
+\subsection{Creación de la matriz}\label{creaciuxf3n-de-la-matriz}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Creamos la tabla con la función crea.tablaX}
+\NormalTok{tabla1 }\OtherTok{=} \FunctionTok{crea.tablaX}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{90}\NormalTok{,}\DecValTok{40}\NormalTok{, }\DecValTok{60}\NormalTok{, }\DecValTok{40}\NormalTok{, }\DecValTok{75}\NormalTok{,}
+                       \DecValTok{50}\NormalTok{, }\DecValTok{70}\NormalTok{, }\DecValTok{55}\NormalTok{, }\DecValTok{65}\NormalTok{, }\DecValTok{60}\NormalTok{,}
+                       \DecValTok{20}\NormalTok{, }\DecValTok{80}\NormalTok{, }\DecValTok{90}\NormalTok{, }\DecValTok{75}\NormalTok{, }\DecValTok{50}\NormalTok{, }
+                       \DecValTok{70}\NormalTok{, }\DecValTok{45}\NormalTok{, }\DecValTok{40}\NormalTok{, }\DecValTok{95}\NormalTok{, }\DecValTok{30}\NormalTok{), }\AttributeTok{numalternativas =} \DecValTok{4}\NormalTok{, }\AttributeTok{numestados =} \DecValTok{5}\NormalTok{)}
+
+\CommentTok{\# Convertimos la tabla en un data.frame}
+\NormalTok{tabla\_1 }\OtherTok{=} \FunctionTok{as.data.frame}\NormalTok{(tabla1)}
+
+\CommentTok{\# Presentamos la tabla de valores}
+\FunctionTok{tt}\NormalTok{(tabla\_1, }\AttributeTok{rownames =}\NormalTok{ T)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+\centering
+\begin{tblr}[         %% tabularray outer open
+]                     %% tabularray outer close
+{                     %% tabularray inner open
+colspec={Q[]Q[]Q[]Q[]Q[]Q[]},
+}                     %% tabularray inner close
+\toprule
+rowname & e1 & e2 & e3 & e4 & e5 \\ \midrule %% TinyTableHeader
+d1 & 90 & 40 & 60 & 40 & 75 \\
+d2 & 50 & 70 & 55 & 65 & 60 \\
+d3 & 20 & 80 & 90 & 75 & 50 \\
+d4 & 70 & 45 & 40 & 95 & 30 \\
+\bottomrule
+\end{tblr}
+\end{table}
+
+\subsection{Resolución de beneficios}\label{resoluciuxf3n-de-beneficios}
+
+\subsection{Resolución de costes}\label{resoluciuxf3n-de-costes}
+
+\pagebreak
+
+\section{Problema 2}\label{problema-2}
+
+Miguel está pensando en contratar un servicio de Internet para su hogar.
+Ha consultado varias compañías y le han dado los siguientes informes:
+
+\begin{itemize}
+\item
+  Con Digi debe pagar un cuota mensual de 25€, pero la velocidad máxima
+  solo estará disponible después de 6 meses; hasta entonces, solo tendrá
+  la mitad de velocidad contratada.
+\item
+  Con O2 puede disfrutar de la velocidad completa desde el primer mes,
+  pero deberá pagar una cuota de 50€ al mes.
+\item
+  Con Vodafone debe pagar 35€ al mes, lo que garantiza la velocidad
+  completa, excepto en horas puntas, cuando la velocidad se reduce.
+\end{itemize}
+
+Miguel trabaja desde casa y necesita Internet para videollamadas
+frecuentes y descargas grandes de archivos. Supongamos que el coste
+asociado a la velocidad insuficiente son:
+
+\begin{itemize}
+\item
+  Reducción en productividad y retrasos en descargas: 400€
+\item
+  Problemas en videollamadas y reuniones importantes: 1000€
+\end{itemize}
+
+Miguel quiere evaluar cuál sería el coste total del primer año,
+considerando que podría tener meses de alta demanda de trabajo o meses
+de baja demanda, y cuál sería la mejor compañía a elegir.
+
+\subsection{Creación de la matriz}\label{creaciuxf3n-de-la-matriz-1}
+
+
+
+\end{document}

@@ -25,6 +25,24 @@ execute:
 
 \pagebreak
 
+# Previo al planteamiento de los problemas
+
+Implementamos las funciones de incertidumbre a utilizar
+
+```{r}
+source("teoriadecision_funciones_incertidumbre.R")
+
+```
+
+Cargamos la librería tinytable para presentar las tablas en un mejor formato
+
+```{r}
+library(tinytable)
+
+```
+
+\pagebreak
+
 # Problema 1
 
 Aplicar los criterios de decisión bajo incertidumbre al problema cuya matriz de valores numéricos viene dada en la siguiente tabla:
@@ -43,20 +61,179 @@ Considera el problema primero de beneficios (favorable) y posteriormente de cost
 ## Creación de la matriz
 
 ```{r}
+# Creamos la tabla con la función crea.tablaX
+tabla1 = crea.tablaX(c(90,40, 60, 40, 75,
+                       50, 70, 55, 65, 60,
+                       20, 80, 90, 75, 50, 
+                       70, 45, 40, 95, 30), numalternativas = 4, numestados = 5)
 
+# Convertimos la tabla en un data.frame
+tabla_1 = as.data.frame(tabla1)
+
+# Presentamos la tabla de valores
+tt(tabla_1, rownames = T)
 ```
 
 ## Resolución de beneficios
 
-```{r}
+Vamos a resolver esta matriz de valores para el caso de beneficios, en cada uno de los criterios dados en la asignatura.
 
+### Criterio de Wald o Pesimista
+
+El criterio de Wald selecciona la alternativa cuyo peor resultado sea el más alto posible. Es decir, asume una postura pesimista: se elige la opción que garantiza el mejor mínimo beneficio.
+
+```{r}
+sol_11 = criterio.Wald(tabla1, favorable = T)
+sol_11
 ```
+
+La mejor alternativa según el criterio de Wald, es la alternativa 2.
+
+### Criterio optimista
+
+El criterio optimista (también llamado de Maximax) elige la alternativa con el máximo beneficio posible, suponiendo que siempre ocurrirá el mejor escenario.
+
+```{r}
+sol_12 = criterio.Optimista(tabla1, favorable = T)
+sol_12
+```
+
+La mejor alternativa según el criterio optimista, es la alternativa 4.
+
+### Criterio de Hurwicz
+
+Este criterio combina el pesimismo y el optimismo mediante un parámetro α (alfa) entre 0 y 1. Este se calcula como una media ponderada entre el mejor beneficio (ponderado por α) y el peor beneficio (ponderado por 1−α).
+
+Vamos a suponer un nivel de alfa tal que **α = 0.5.**
+
+```{r}
+sol_13 = criterio.Hurwicz(tabla1, alfa = 0.5, favorable = T)
+sol_13
+```
+
+La mejor alternativa según el criterio de Hurwicz, es la alternativa 1.
+
+Construimos las gráficas asociadas al criterio de Hurwicz:
+
+```{r}
+alfa = 0.5
+dibuja.criterio.Hurwicz(tabla1, favorable = T)
+dibuja.criterio.Hurwicz_Intervalos(tabla1, favorable = T)
+```
+
+### Criterio de Savage
+
+El criterio de Savage (criterio del mínimo arrepentimiento) busca la alternativa que minimiza la pérdida por no haber elegido la mejor opción en cada estado. Es decir, se elige aquella cuyo peor “arrepentimiento” sea el más pequeño.
+
+```{r}
+sol_14 = criterio.Savage(tabla1, favorable = T)
+sol_14
+```
+
+La mejor alternativa según el criterio de Savage, es la alternativa 2.
+
+### Criterio de Laplace
+
+El criterio de Laplace asume que todos los estados son igualmente probables, y elige la alternativa con el mayor beneficio medio.
+
+```{r}
+sol_15 = criterio.Laplace(tabla1, favorable = T)
+sol_15
+```
+
+La mejor alternativa según el criterio de Laplace, es la alternativa 3.
+
+### Criterio del punto ideal
+
+El criterio del punto ideal busca la alternativa más cercana al punto ideal, es decir, aquella que más se aproxima simultáneamente al máximo beneficio posible en todos los estados.
+
+```{r}
+sol_16 = criterio.PuntoIdeal(tabla1, favorable = T)
+sol_16
+```
+
+La mejor alternativa según el criterio del punto ideal, es la alternativa 2.
 
 ## Resolución de costes
 
+Vamos a resolver esta matriz de valores para el caso desfavorable, en cada uno de los criterios dados en la asignatura.
+
+### Criterio de Wald o pesimista 
+
+El criterio de Wald selecciona la alternativa cuyo peor resultado sea el más bajo posible.\
+Es decir, asume una postura pesimista: se elige la opción que garantiza el menor coste máximo.
+
 ```{r}
+sol_21 = criterio.Wald(tabla1, favorable = F)
+sol_21
 
 ```
+
+La mejor alternativa según el criterio de Wald, es la alternativa 2.
+
+### Criterio optimista
+
+El criterio optimista (también llamado de Minimin) elige la alternativa con el menor coste posible, suponiendo que siempre ocurrirá el mejor escenario.
+
+```{r}
+sol_22 = criterio.Optimista(tabla1, favorable = F)
+sol_22
+```
+
+La mejor alternativa según el criterio optimista es la alternativa 3.
+
+### Criterio de Hurwicz
+
+Este criterio combina el pesimismo y el optimismo mediante un parámetro α (alfa) entre 0 y 1. Este se calcula como una media ponderada entre el mejor coste (mínimo) (ponderado por α) y el peor coste (máximo) (ponderado por 1−α).
+
+Vamos a suponer un nivel de alfa tal que **α = 0.5.**
+
+```{r}
+sol_23 = criterio.Hurwicz(tabla1, alfa = 0.5, favorable = F)
+sol_23
+```
+
+La mejor alternativa según el criterio de Hurwicz es la alternativa 3.
+
+Construimos las gráficas asociadas al criterio de Hurwicz:
+
+```{r}
+dibuja.criterio.Hurwicz(tabla1, favorable = F)
+dibuja.criterio.Hurwicz_Intervalos(tabla1, favorable = F)
+```
+
+### Criterio de Savage
+
+El criterio de Savage (criterio del mínimo arrepentimiento) busca la alternativa que minimiza la pérdida por haber elegido la opción más costosa en cada estado. Se elige la alternativa cuyo peor arrepentimiento (coste adicional) sea el menor posible.
+
+```{r}
+sol_24 = criterio.Savage(tabla1, favorable = F)
+sol_24
+```
+
+La mejor alternativa según el criterio de Savage es la alternativa 2.
+
+### Criterio de Laplace
+
+El criterio de Laplace asume que todos los estados son igualmente probables, y selecciona la alternativa con el menor coste medio.
+
+```{r}
+sol_25 = criterio.Laplace(tabla1, favorable = F)
+sol_25
+```
+
+La mejor alternativa según el criterio de Laplace es la alternativa 4.
+
+### Criterio del punto ideal
+
+El criterio del punto ideal busca la alternativa más cercana al punto ideal mínimo, es decir, aquella que más se aproxima simultáneamente al menor coste posible en todos los estados.
+
+```{r}
+sol_26 = criterio.PuntoIdeal(tabla1, favorable = F)
+sol_26
+```
+
+La mejor alternativa según el criterio del punto ideal es la alternativa 2.
 
 \pagebreak
 
