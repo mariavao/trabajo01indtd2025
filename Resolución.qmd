@@ -158,7 +158,7 @@ La mejor alternativa según el criterio del punto ideal, es la alternativa 2.
 
 Vamos a resolver esta matriz de valores para el caso desfavorable, en cada uno de los criterios dados en la asignatura.
 
-### Criterio de Wald o pesimista 
+### Criterio de Wald o pesimista
 
 El criterio de Wald selecciona la alternativa cuyo peor resultado sea el más bajo posible.\
 Es decir, asume una postura pesimista: se elige la opción que garantiza el menor coste máximo.
@@ -257,6 +257,107 @@ Miguel quiere evaluar cuál sería el coste total del primer año, considerando 
 
 ## Creación de la matriz
 
+### Planteamiento
+
+Las alternativas a elegir, sería contratar un servicio de Internet con:
+
+-   Digi, cuya cuota mensual es de 25€
+
+-   O2, cuya cuota mensual es de 50€
+
+-   Vodafone, cuya cuota mensual es de 35€
+
+Los estados de la naturaleza de este problema son:
+
+-   Meses de alta demanda (problemas de productividad si la velocidad es insuficiente).
+
+-   Meses de baja demanda (menos impacto si la velocidad es reducida).
+
+Cuyos costos asociados a una velocidad insuficiente son:
+
+-   Reducción en productividad/descargas: 400€
+
+-   Problemas en videollamadas: 1000€
+
+### **Cálculo del coste anual según opción y estado**
+
+Para Digi, con la mitad de velocidad los 6 primeros meses, tenemos que:
+
+-   Cuota anual: 25 × 12 = 300€
+
+-   Coste proporcional por velocidad insuficiente (6/12 del año) = 1400 × 0.5 = 700€
+
+-   Alta demanda: 300 + 700 = 1000€
+
+-   Baja demanda: 300€
+
+Para O2, con una velocidad completa desde el inicio, tenemos que:
+
+-   Cuota anual: 50 × 12 = 600€
+
+-   Velocidad suficiente = 0€
+
+-   Alta demanda: 600€
+
+-   Baja demanda: 600€
+
+Para Vodafone, con velocidad reducida horas puntas, tenemos que:
+
+-   Cuota anual: 35 x 12 = 420€
+
+-   Estimando que las horas puntas reducen el rendimiento un 50% del año: 1400 x 0.5 = 700€
+
+-   Alta demanda: 420 + 700 = 1120€
+
+-   Baja demanda: 420€
+
+### Matriz de valores
+
 ```{r}
+# Valores de la tabla
+m_11 = (25*12)+(1400*0.5)
+m_12 = 25*12
+m_21 = 50*12
+m_22 = 50*12
+m_31 = (35*12)+(1400*0.5)
+m_32 = 35*12
+
+# Creamos la tabla con la función crea.tablaX
+tabla2 = crea.tablaX(c(m_11, m_12,
+                       m_21, m_22,
+                       m_31, m_32), numalternativas = 3, numestados = 2,
+                     nb_alternativas = c("Digi", "O2", "Vodafone"),
+                     nb_estados = c("Alta demanda", "Baja demanda"))
+
+# Convertimos la tabla en un data.frame
+tabla_2 = as.data.frame(tabla2)
+
+# Presentamos la tabla de valores
+tt(tabla_2, rownames = T)
+```
+
+## Resolución
+
+Resolvemos el problema con una función, la cual recoge todos los criterios de decisión bajo incertidumbre:
+
+```{r}
+sol_2 = criterio.Todos(tabla_2, alfa = 0.5, favorable = F)
+tt(sol_2, rownames = T)
 
 ```
+
+Podemos ver que cada criterio tiene una alternativa:
+
+-   Criterio de Wald: La mejor opción es contratar O2
+
+-   Criterio Optimista: La mejor opción es contratar Digi
+
+-   Criterio de Hurwicz: La mejor opción es contratar O2
+
+-   Criterio de Savage: La mejor opción es contratar O2
+
+-   Criterio de Laplace: La mejor opción es contratar O2
+
+-   Criterio del Punto Ideal: La mejor opción es contratar O2
+
+Luego, la mejor opción es contratar O2.
